@@ -1,0 +1,135 @@
+.root {
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-font-size: 13px;
+}
+
+.button {
+    -fx-padding: 6 14 6 14;
+    -fx-text-fill: white;
+    -fx-background-color: #64748b;
+    -fx-background-radius: 4;
+    -fx-cursor: hand;
+}
+
+/* Action-category button colors (FR-026) — every button uses a relevant, non-default color. */
+.button-primary {
+    -fx-background-color: #2563eb;
+}
+.button-primary:hover {
+    -fx-background-color: #1d4ed8;
+}
+
+.button-success {
+    -fx-background-color: #16a34a;
+    -fx-padding: 8 18 8 18;
+}
+.button-success:hover {
+    -fx-background-color: #15803d;
+}
+
+.button-warning {
+    -fx-background-color: #eab308;
+    -fx-text-fill: #1f2937;
+    -fx-padding: 8 18 8 18;
+}
+.button-warning:hover {
+    -fx-background-color: #ca8a04;
+}
+
+.button-open {
+    -fx-background-color: #0ea5e9;
+}
+.button-open:hover {
+    -fx-background-color: #0284c7;
+}
+
+.button-print {
+    -fx-background-color: #7c3aed;
+}
+.button-print:hover {
+    -fx-background-color: #6d28d9;
+}
+
+.button-backup {
+    -fx-background-color: #0d9488;
+}
+.button-backup:hover {
+    -fx-background-color: #0f766e;
+}
+
+.button-restore {
+    -fx-background-color: #d97706;
+}
+.button-restore:hover {
+    -fx-background-color: #b45309;
+}
+
+.button-delete {
+    -fx-background-color: #dc2626;
+}
+.button-delete:hover {
+    -fx-background-color: #b91c1c;
+}
+
+.button-cancel {
+    -fx-background-color: #64748b;
+}
+.button-cancel:hover {
+    -fx-background-color: #475569;
+}
+
+.error-label {
+    -fx-text-fill: #b91c1c;
+}
+
+.page-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+/* Landing filter bar (last-7-days default filter, FR-003a). */
+.landing-filter-bar {
+    -fx-padding: 8 0 8 0;
+}
+
+/* Field labels above medical-history controls (FR-004a). */
+.field-label {
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+    -fx-text-fill: #334155;
+}
+
+/* Multiline Diagnosis/Prescription/Notes areas keep a stable height so the
+   history list below them never overlaps (FR-004a layout requirement). */
+.history-text-area {
+    -fx-font-size: 13px;
+}
+
+.history-list-view {
+    -fx-background-color: #cbd5e1;
+    -fx-border-color: #94a3b8;
+    -fx-border-radius: 4;
+}
+
+.history-list-view .list-cell {
+    -fx-padding: 7 10 7 10;
+}
+
+.history-list-view .list-cell:filled:even {
+    -fx-background-color: #f8fafc;
+}
+
+.history-list-view .list-cell:filled:odd {
+    -fx-background-color: #e2e8f0;
+}
+
+.history-list-view .list-cell:filled:selected {
+    -fx-background-color: #2563eb;
+    -fx-text-fill: white;
+}
+
+/* Modal child windows (patient profile, print preview, history edit) share
+   consistent padding so stacked windows look intentional (FR-025). */
+.modal-root {
+    -fx-padding: 15;
+}

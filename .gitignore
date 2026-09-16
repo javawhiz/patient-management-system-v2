@@ -1,0 +1,22 @@
+# Build and distribution output
+target/
+dist/
+*.dmg
+
+# Maven-generated files
+dependency-reduced-pom.xml
+
+# Local database files
+*.db
+*.sqlite
+*.sqlite3
+
+# IDE and operating system files
+.idea/
+.vscode/
+*.iml
+*.swp
+.DS_Store
+
+# Local SpecKit state
+.specify/

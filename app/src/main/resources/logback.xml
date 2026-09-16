@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Constitution Principle III: patient content (names, contact details,
+    diagnosis, prescription text, notes) MUST NEVER be logged. Only operational
+  metadata (class names, timings, exception types) is logged. Every log
+  statement in the codebase MUST be reviewed against this rule (see
+  tasks.md T051) — this config alone cannot enforce it.
+-->
+<configuration>
+  <property name="LOG_DIR" value="${user.home}/.patient-management-system/log"/>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level [%thread] %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+  <appender name="ROLLING_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>${LOG_DIR}/patient-management-system.log</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+      <fileNamePattern>${LOG_DIR}/patient-management-system.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
+      <maxFileSize>10MB</maxFileSize>
+      <maxHistory>30</maxHistory>
+      <totalSizeCap>200MB</totalSizeCap>
+    </rollingPolicy>
+    <encoder>
+      <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level [%thread] %logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+    <appender-ref ref="ROLLING_FILE"/>
+    </root>
+
+    <!-- Never raise below WARN: DEBUG-level Hibernate SQL logging can include bound parameter values (patient data). -->
+    <logger name="org.hibernate.SQL" level="WARN"/>
+    <logger name="org.hibernate.orm.jdbc.bind" level="WARN"/>
+</configuration>

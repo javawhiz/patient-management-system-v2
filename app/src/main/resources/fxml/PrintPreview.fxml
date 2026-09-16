@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.clinic.pms.view.PrintPreviewController" spacing="10">
+    <padding><Insets top="15" right="15" bottom="15" left="15"/></padding>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label styleClass="page-title" text="Print Preview"/>
+        <HBox HBox.hgrow="ALWAYS"/>
+        <Button text="Back" styleClass="button-cancel" onAction="#handleBack"/>
+    </HBox>
+
+    <HBox spacing="15" alignment="CENTER_LEFT">
+        <Label text="Include in printout:"/>
+        <CheckBox fx:id="currentTreatmentCheckBox" text="Current Treatment Plan" onAction="#refreshPreview"/>
+        <CheckBox fx:id="historyCheckBox" text="Include Medical History" onAction="#refreshPreview"/>
+        <CheckBox fx:id="notesCheckBox" text="Include Notes" onAction="#refreshPreview"/>
+        <Button text="Print" styleClass="button-print" onAction="#handlePrint"/>
+    </HBox>
+
+    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS">
+        <VBox fx:id="printRoot" styleClass="print-root" spacing="6"/>
+    </ScrollPane>
+</VBox>

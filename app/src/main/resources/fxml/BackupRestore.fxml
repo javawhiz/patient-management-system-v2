@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.clinic.pms.view.BackupRestoreController" spacing="15">
+    <padding><Insets top="15" right="15" bottom="15" left="15"/></padding>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label styleClass="page-title" text="Backup &amp; Restore"/>
+        <HBox HBox.hgrow="ALWAYS"/>
+        <Button text="Back to Patients" styleClass="button-cancel" onAction="#handleBack"/>
+    </HBox>
+
+    <ProgressBar fx:id="progressBar" visible="false" managed="false" prefWidth="260" progress="-1"/>
+
+    <Label text="Back Up" styleClass="page-title" style="-fx-font-size: 15px;"/>
+    <Label wrapText="true" text="Save a full copy of all patient data as a plain SQL file (e.g., to a USB drive)."/>
+    <Button text="Back Up Now" styleClass="button-backup" onAction="#handleBackup"/>
+
+    <Label text="H2 Native Backup" styleClass="page-title" style="-fx-font-size: 15px;"/>
+    <Label wrapText="true" text="Save the complete H2 schema and data. This format is H2-specific and is not portable to other database systems."/>
+    <Button text="Export H2 Backup" styleClass="button-backup" onAction="#handleH2Backup"/>
+
+    <Label text="Restore" styleClass="page-title" style="-fx-font-size: 15px;"/>
+    <Label wrapText="true" text="Restoring will replace all current data with the contents of the selected backup file."/>
+    <Button text="Restore From File..." styleClass="button-restore" onAction="#handleRestore"/>
+    <Label wrapText="true" text="H2 restore creates a safety backup, validates a fresh database, and then replaces the current database."/>
+    <Button text="Restore H2 Backup..." styleClass="button-restore" onAction="#handleH2Restore"/>
+</VBox>

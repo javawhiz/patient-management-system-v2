@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.clinic.pms.view.MedicalHistoryEditController" spacing="10" styleClass="modal-root">
+    <padding><Insets top="15" right="15" bottom="15" left="15"/></padding>
+    <Label styleClass="page-title" text="Edit Medical History"/>
+    <Label text="Date" styleClass="field-label"/>
+    <DatePicker fx:id="entryDatePicker" promptText="Date"/>
+    <Label text="Diagnosis" styleClass="field-label"/>
+    <TextArea fx:id="diagnosisArea" styleClass="history-text-area" promptText="Diagnosis / complaint" prefRowCount="4" wrapText="true"/>
+    <Label text="Prescription" styleClass="field-label"/>
+    <TextArea fx:id="prescriptionArea" styleClass="history-text-area" promptText="Prescription" prefRowCount="6" wrapText="true"/>
+    <Label text="Notes" styleClass="field-label"/>
+    <TextArea fx:id="notesArea" styleClass="history-text-area" promptText="Notes" prefRowCount="6" wrapText="true"/>
+    <HBox spacing="8" alignment="CENTER_RIGHT">
+        <Button text="Soft Delete" styleClass="button-delete" onAction="#handleSoftDelete"/>
+        <Button text="Cancel" styleClass="button-cancel" onAction="#handleCancel"/>
+        <Button text="Save" styleClass="button-primary" onAction="#handleSave"/>
+    </HBox>
+</VBox>
