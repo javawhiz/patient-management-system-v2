@@ -45,7 +45,7 @@ java -jar target/patient-management-system.jar
 ```bash
 cd app
 mvn clean package
-mvn -Ppackage-windows exec:exec
+mvn -Ppackage-windows package
 ```
 
 This produces a Windows `.exe` installer (via `jpackage`) with a bundled JVM

@@ -41,7 +41,7 @@ jobs:
       - name: Install WiX Toolset (required by jpackage --type exe)
         run: choco install wixtoolset -y
       - run: mvn -B clean package -DskipTests
-      - run: mvn -B -Ppackage-windows exec:exec -DskipTests
+      - run: mvn -B -Ppackage-windows package -DskipTests
       - uses: actions/upload-artifact@v4
         with:
           name: patient-management-system-windows
